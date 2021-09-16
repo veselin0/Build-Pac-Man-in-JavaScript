@@ -62,3 +62,25 @@ function createBoard() {
 
 createBoard();
 
+// starting position of pacman
+let pacmanCurrentIndex = 490;
+squares[pacmanCurrentIndex].classList.add('pacman');
+
+// down key - 40 
+// up - 38
+// left - 37
+// right - 39
+
+function control(e) {
+    if (e.key === 'ArrowDown') {
+       console.log('pressed down key'); 
+    } else if (e.key === 'ArrowUp') {
+        console.log('pressed up key');
+    } else if (e.key === 'ArrowLeft') {
+        console.log('pressed left key');
+    } else if (e.key === 'ArrowRight') {
+        console.log('pressed right key');
+    }
+}
+document.addEventListener('keyup', control);
+

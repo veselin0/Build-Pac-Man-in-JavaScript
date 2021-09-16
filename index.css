@@ -32,8 +32,9 @@ html, body {
     border-radius: 7.5px;
 }
 
-.packman {
-    background-color: yellow;
+.pacman {
+    background-color: orange;
     border-radius: 7.5px;
+    border: none;
 }
 
