@@ -72,14 +72,33 @@ squares[pacmanCurrentIndex].classList.add('pacman');
 // right - 39
 
 function control(e) {
-    if (e.key === 'ArrowDown') {
-       console.log('pressed down key'); 
-    } else if (e.key === 'ArrowUp') {
-        console.log('pressed up key');
-    } else if (e.key === 'ArrowLeft') {
-        console.log('pressed left key');
-    } else if (e.key === 'ArrowRight') {
-        console.log('pressed right key');
+    // if (e.key === 'ArrowDown') {
+    //    console.log('pressed down key'); 
+    // } else if (e.key === 'ArrowUp') {
+    //     console.log('pressed up key');
+    // } else if (e.key === 'ArrowLeft') {
+    //     console.log('pressed left key');
+    // } else if (e.key === 'ArrowRight') {
+    //     console.log('pressed right key');
+    // }
+
+    switch(e.key) {
+        case 'ArrowDown':
+            console.log('pressed down');
+            break;
+        case 'ArrowUp':
+            console.log('pressed up');
+            break;
+        case 'ArrowLeft':
+            console.log('pressed left');
+            break;
+        case 'ArrowRight':
+            console.log('pressed right');
+            break;
+        default:
+            console.log('not a command');
+            break;            
+    
     }
 }
 document.addEventListener('keyup', control);
