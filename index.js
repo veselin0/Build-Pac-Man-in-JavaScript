@@ -167,3 +167,13 @@ const ghosts = [
 
 // starting position of ghosts:
 ghosts.forEach(ghost => squares[ghost.startIndex].classList.add(ghost.className));
+
+// move the ghosts
+ghosts.forEach(ghost => moveGhost(ghost));
+
+function moveGhost(ghost) {
+    console.log('moved ghost');
+    const directions = [-1, +1, -width, +width];
+    let direction = directions[Math.floor(Math.random() * directions.length)];
+    console.log(direction);
+}
