@@ -58,3 +58,7 @@ html, body {
     border: none;
 }
 
+.scared-ghost {
+   background-color: rgb(224, 73, 230);
+   border:none; 
+}

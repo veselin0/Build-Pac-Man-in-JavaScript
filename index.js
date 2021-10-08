@@ -206,13 +206,18 @@ function moveGhost(ghost) {
             ) {
         //remove ghosts:
             squares[ghost.currentIndex].classList.remove(ghost.className);
-            squares[ghost.currentIndex].classList.remove('ghost');
+            squares[ghost.currentIndex].classList.remove('ghost', 'scared-ghost');
             //add direction to current Index:
             ghost.currentIndex += direction;
             //add ghost class:
             squares[ghost.currentIndex].classList.add(ghost.className);
             squares[ghost.currentIndex].classList.add('ghost')
         } else direction = directions[Math.floor(Math.random() * directions.length)];  
+
+        //if ghost is currently scared
+        if(ghost.isScared) {
+            squares[ghost.currentIndex].classList.add('scared-ghost');
+        }
 
     }, ghost.speed);
 }
