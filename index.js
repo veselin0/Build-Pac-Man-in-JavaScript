@@ -136,6 +136,7 @@ function control(e) {
     }
     squares[pacmanCurrentIndex].classList.add('pacman');
     pacDotEaten();
+    powerPelletEaten();
 }
 document.addEventListener('keyup', control);
 
@@ -145,6 +146,23 @@ function pacDotEaten() {
         score++;
         scoreDisplay.innerHTML = score;
     }
+}
+
+function powerPelletEaten() {
+    if (squares[pacmanCurrentIndex].classList.contains('power-pellet')) {
+        squares[pacmanCurrentIndex].classList.remove('power-pellet');
+        //add a score of 10
+        score += 10;
+        scoreDisplay.innerHTML = score;
+        //change each of the four ghosts to isScared
+        ghosts.forEach(ghost =>ghost.isScared = true);
+        //use setTimeout to unscare ghosts after 10 seconds
+        setTimeout(unScareGhosts, 10000)
+    }
+}
+
+function unScareGhosts() {
+    ghosts.forEach(ghost =>ghost.isScared = false); 
 }
 
 class Ghost {
