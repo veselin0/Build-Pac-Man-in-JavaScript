@@ -157,7 +157,7 @@ function powerPelletEaten() {
         //change each of the four ghosts to isScared
         ghosts.forEach(ghost =>ghost.isScared = true);
         //use setTimeout to unscare ghosts after 10 seconds
-        setTimeout(unScareGhosts, 10000)
+        setTimeout(unScareGhosts, 100000)
     }
 }
 
@@ -217,6 +217,14 @@ function moveGhost(ghost) {
         //if ghost is currently scared
         if(ghost.isScared) {
             squares[ghost.currentIndex].classList.add('scared-ghost');
+        }
+
+        // if ghost is currently scared and pacman is on it
+        if(ghost.isScared && squares[ghost.currentIndex].classList.contains('pacman')) {
+            squares[ghost.currentIndex].classList.remove(ghost.className, 'ghost', 'scared-ghost');
+            ghost.currentIndex = ghost.startIndex;
+            score += 100;
+            squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
         }
 
     }, ghost.speed);
