@@ -157,7 +157,7 @@ function powerPelletEaten() {
         //change each of the four ghosts to isScared
         ghosts.forEach(ghost =>ghost.isScared = true);
         //use setTimeout to unscare ghosts after 10 seconds
-        setTimeout(unScareGhosts, 100000)
+        setTimeout(unScareGhosts, 10000)
     }
 }
 
@@ -226,9 +226,20 @@ function moveGhost(ghost) {
             score += 100;
             squares[ghost.currentIndex].classList.add(ghost.className, 'ghost');
         }
-
+        ceckForGameOver();
     }, ghost.speed);
 }
 
-//clearInterval(ghost.timerId);
+// check for game over
+function ceckForGameOver() {
+    // if a ghost is not scared and pacman bumps into it
+    if(
+        !squares[pacmanCurrentIndex].classList.contains('scared-ghost') && 
+        squares[pacmanCurrentIndex].classList.contains('ghost')
+    ) {
+        ghosts.forEach(ghost => clearInterval(ghost.timerId))
+        document.removeEventListener('keyup', control);
+        scoreDisplay.innerHTML = 'You LOSE!';
+    }
+}
 
